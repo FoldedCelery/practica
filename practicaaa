@@ -1,0 +1,71 @@
+pin = 1234
+t = 3
+op = 0
+pasw = False
+
+while t>0 and pasw != True  :
+    print("Escriba el pin:")
+    uPin = int(input())
+    if uPin == pin :
+        pasw = True
+    else :
+        print("Incorrecto")
+        t-= 1
+        pasw = False
+
+if t == 0 :
+    print("CUENTA BLOQUEADA")
+
+saldo = 1000
+print("SALDO: 1000")
+
+while op != 4 and pasw :
+    
+    print("==MENU==")
+    print("1. Deposito")
+    print("2. Retiro")
+    print("3. Revisar saldo")
+    print("4. Salir")
+    op = int(input("Opcion:"))
+    
+    
+    match ( op )  :
+        case 1:
+            print("Monto a depositar:")
+            dep = int(input())
+
+            if dep <= 0 :
+                print("Monto imposible de depositar")
+            else :
+                saldo += dep 
+                print("Monto depositado con exito")
+
+            
+
+        case 2:
+            print("Monto a retirar:")
+            ret = int(input())
+
+            if ret <= 0:
+                print("Monto imposible de retirar")
+            elif ret>saldo : 
+                print("Saldo insuficiente")
+            else :
+                saldo -= ret
+                print("Retirado con exito, saldo:", saldo)
+
+
+            
+        
+        case 3:
+            print("Saldo:", saldo)
+
+            
+
+        case 4:
+            print("Saliendo del sistema")
+
+            
+
+        case _:
+            print("Opcion no valida")
